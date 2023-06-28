@@ -69,8 +69,9 @@ export class Taxi extends Actor {
     if (ev.other._name = 'Buoy'){
       console.log('You hit a buoy')
       ev.other.kill();
-    }
-    console.log("You hit Something!")
+    } 
+    
+    
     if (this.healthAmount === 1) {
         engine.winner = 'player 2';
         engine.goToScene('deathScene')

@@ -13,7 +13,6 @@ export class TutorialLevel extends ex.Scene {
     
     onInitialize(engine) {
         console.log("tutorial level");
-        console.log(this);
         Resources.TutorialMap.addTiledMapToScene(engine.currentScene);
 
         let tiledMapData = Resources.TutorialMap.data.getExcaliburObjects();
@@ -56,11 +55,6 @@ export class TutorialLevel extends ex.Scene {
 
         const deathscreen = new deathScreen();
         engine.addScene("deathScene", deathscreen);
-
-        if (engine.input.keyboard.wasPressed(ex.Input.Keys.Space)) {
-            console.log("tutorial input");
-    
-        }
 
         if (engine.input.keyboard.wasPressed(ex.Input.Keys  .Q)) {
             console.log("input");

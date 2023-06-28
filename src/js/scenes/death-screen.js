@@ -7,12 +7,12 @@ export class deathScreen extends Scene {
   constructor() {
     super();
   }
-  score;
+
+  
   onInitialize(engine) {
 
     console.log(engine.winner);
 
-    super.onInitialize(engine);
 
     // voegt de opnieuw knop toe aan de eindscene
     this.button = new Actor({
