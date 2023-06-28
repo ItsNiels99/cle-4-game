@@ -11,6 +11,10 @@ export class Waterbus extends Actor {
     this.pos = new Vector(200, 400);
     this.rotation = (270 * Math.PI) / 180;
     this.z = 2;
+
+    this.on('collisionStart', (ev) => {
+      this.onHit(ev, engine);
+    })
   }
 
   onPreUpdate(engine) {
@@ -36,4 +40,26 @@ export class Waterbus extends Actor {
 
     this.vel = direction;
   }
+  onHit(ev, engine) {
+    console.log("blabla");
+    console.log(ev)
+    if (ev.other._name = 'Finish') {
+      console.log('Player 2 wint')
+    }
+    if (ev.other._name = 'Warf') {
+      this.boosterCooldown = new Timer({
+        fcn: () => console.log("false cooldown"),
+        repeats: false,
+        interval: 1200,
+        fcn: () => this.boosterOnCooldown = false
+        // speed = -80;
+      })
+    }
+
+    if (ev.other._name = 'Buoy') {
+      console.log('You hit a buoy')
+    }
+    console.log("You hit Something!")
+}
+
 }

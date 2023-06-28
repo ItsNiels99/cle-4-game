@@ -30,7 +30,9 @@ export class Taxi extends Actor {
   onPreUpdate(engine) {
     let speed = 60;
 
-
+    if (speed < 60) {
+      speed += 2
+    }
 
     // cursor keys is direction
     if (engine.input.keyboard.isHeld(Input.Keys.Right)) {
@@ -56,7 +58,14 @@ export class Taxi extends Actor {
   onHit(ev, engine) {
     console.log("blabla");
     console.log(ev)
-    
+    if (ev.other._name ='Finish'){
+      console.log('Player 1 wint')
+      engine.winner = 'Player 1';
+    }
+    if (ev.other._name = 'Warf'){
+      
+    }
+
     if (ev.other._name = 'Buoy'){
       console.log('You hit a buoy')
       ev.other.kill();
@@ -69,11 +78,13 @@ export class Taxi extends Actor {
     if (this.healthAmount === 2) {
         ev.other.kill();
         this.healthAmount = 1
+      speed -= 20;
     }
     if (this.healthAmount === 3) {
         
-        ev.other.kill();
-        this.healthAmount = 2
+      ev.other.kill();
+      this.healthAmount = 2;
+      speed -= 20;
     }
     console.log(this.healthAmount)
 }
